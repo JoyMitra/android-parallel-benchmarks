@@ -10,15 +10,15 @@ Problem : Given a sequence of numbers X1,X2,X3, ..., Xn,
 #include <math.h>
 
 #define LOG_TAG "parSat"
-#define N 8
+#define N 14
 
 
 void Java_edu_cs_p750_parallelSat_MyNative_parsat(){
     int i,j,k;
     int rows = ((int) pow(2,N));
     int size = rows*N;
-    int input[2048];
-    int output[256];
+    int input[229376];
+    int output[16384];
     int binary[N];
     double start, delta;
 
@@ -49,7 +49,7 @@ void Java_edu_cs_p750_parallelSat_MyNative_parsat(){
 #pragma omp parallel for private(i,j)
     for(i=0;i<size;i=i+N){
         int issat = 1;
-        __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,"Thread %d executing ... ", omp_get_thread_num());
+        //__android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,"Thread %d executing ... ", omp_get_thread_num());
         for(j=i;j<i+N;j++){
             issat = issat && input[j];
         }
@@ -57,10 +57,6 @@ void Java_edu_cs_p750_parallelSat_MyNative_parsat(){
     }
     delta = omp_get_wtime() - start;
     __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,"Parallel SAT computed in %.4f seconds\n",delta);
-    __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,"Output-------");
-    for(k=0;k<rows;k++){
-        __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,"%d",output[k]);
-    }
 
 
 

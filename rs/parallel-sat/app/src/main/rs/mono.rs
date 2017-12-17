@@ -12,9 +12,10 @@ int __attribute__((kernel)) satisfy(int rowId, uint32_t x){
         bool b;
         if(input[i] == 0) b = false;
         else if(input[i] == 1) b = true;
-        if(i%2==0)
-            issat = issat && b;
-        else issat = issat || b;
+        issat = issat && b;
+        //if(i%2==0)
+          //  issat = issat && b;
+        //else issat = issat || b;
     }
     if(issat) return 1;
     else return 0;

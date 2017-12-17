@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int inputArray[] = new int[10000];//{9,8,7,6,5,4,3,2};
+        int inputArray[] = new int[10000000];//{9,8,7,6,5,4,3,2};
         Random r = new Random();
         for(int i=0;i<inputArray.length;i++){
             inputArray[i] = r.nextInt(1024);

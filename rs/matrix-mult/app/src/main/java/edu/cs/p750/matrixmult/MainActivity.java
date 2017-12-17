@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private float[][] cpuMatC;
     private float elapsedTime;
 
-    protected int A_m = 256;
-    protected int A_k = 256;
-    protected int B_n = 256;
+    protected int A_m = 32;
+    protected int A_k = 32;
+    protected int B_n = 32;
 
     public float[] random_matrix(int m, int n)
     {

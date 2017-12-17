@@ -15,7 +15,7 @@ import edu.cs.p750.parPrefixRS.ScriptC_mono;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int N = 1000;
+    private static int N = 100000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        TextView textView = (TextView) findViewById(R.id.result);
-        textView.setText(debugString);
+        //TextView textView = (TextView) findViewById(R.id.result);
+        //textView.setText(debugString);
     }
 
     private void getpar_prefix_cpu(int[] inputArray){
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         long endTime = System.currentTimeMillis();
         long elapsedTime = (endTime - startTime);
         Log.d("MAX","Time to compute max in CPU : " + elapsedTime + "ms");
-        TextView textView = (TextView) findViewById(R.id.cpuResult);
-        textView.setText(debugString);
+        //TextView textView = (TextView) findViewById(R.id.cpuResult);
+        //textView.setText(debugString);
     }
 }

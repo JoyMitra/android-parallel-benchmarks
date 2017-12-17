@@ -7,7 +7,7 @@
 #include <android/log.h>
 
 #define LOG_TAG "FindMax"
-#define SIZE 10000
+#define SIZE 1000
 
 void Java_edu_example_anative_myfirstnativeapp_MyNative_findMax(){
     int   i;
@@ -20,7 +20,9 @@ void Java_edu_example_anative_myfirstnativeapp_MyNative_findMax(){
     for (i=0; i < SIZE; i++) {
         a[i] = i;
     }
+    omp_set_num_threads(3);
     start = omp_get_wtime();
+
 #pragma omp parallel for      \
    default(shared) private(i)  \
    reduction(max:maxm)

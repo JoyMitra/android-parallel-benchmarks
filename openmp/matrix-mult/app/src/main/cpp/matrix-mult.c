@@ -8,9 +8,9 @@
 
 #define LOG_TAG "matrix-mult"
 
-#define NRA 256                 /* number of rows in matrix A */
-#define NCA 256                 /* number of columns in matrix A */
-#define NCB 256                  /* number of columns in matrix B */
+#define NRA 32                 /* number of rows in matrix A */
+#define NCA 32                 /* number of columns in matrix A */
+#define NCB 32                  /* number of columns in matrix B */
 
 void Java_edu_example_anative_myfirstnativeapp_MyNative_matrixMult()
 {
@@ -22,6 +22,7 @@ void Java_edu_example_anative_myfirstnativeapp_MyNative_matrixMult()
     chunk = 10;                    /* set loop iteration chunk size */
     double start, delta;
 
+    omp_set_num_threads(6);
     start = omp_get_wtime();
 /*** Spawn a parallel region explicitly scoping all variables ***/
 #pragma omp parallel shared(a,b,c,nthreads,chunk) private(tid,i,j,k)
